@@ -16,63 +16,63 @@ echo ""
 
 ##########################################################################################################
 
-# echo "==========="
-# echo "= All Objects [ git cat-file --batch-check --batch-all-objects ]"
-# echo "==========="
-# echo ""
-# git cat-file --batch-check --batch-all-objects
-# echo ""
+echo "==========="
+echo "= All Objects [ git cat-file --batch-check --batch-all-objects ]"
+echo "==========="
+echo ""
+git cat-file --batch-check --batch-all-objects
+echo ""
 
 ##########################################################################################################
 
-# commits=$(git cat-file --batch-check --batch-all-objects | grep commit | cut -d' ' -f 1)
-# trees=$(git cat-file --batch-check --batch-all-objects | grep tree | cut -d' ' -f 1)
-# blobs=$(git cat-file --batch-check --batch-all-objects | grep blob | cut -d' ' -f 1)
+commits=$(git cat-file --batch-check --batch-all-objects | grep commit | cut -d' ' -f 1)
+trees=$(git cat-file --batch-check --batch-all-objects | grep tree | cut -d' ' -f 1)
+blobs=$(git cat-file --batch-check --batch-all-objects | grep blob | cut -d' ' -f 1)
 
-# echo "==========="
-# echo "= Commits [ git cat-file --batch-check --batch-all-objects | grep commit ]"
-# echo "==========="
-# echo ""
-# for commit in $commits
-# do
-#     echo "-----------"
-#     echo "- $commit [ git cat-file -p $commit ]"
-#     echo "-----------"
-#     echo ""
-#     git cat-file -p $commit
-#     echo ""
-# done
-# echo ""
+echo "==========="
+echo "= Commits [ git cat-file --batch-check --batch-all-objects | grep commit ]"
+echo "==========="
+echo ""
+for commit in $commits
+do
+    echo "-----------"
+    echo "- $commit [ git cat-file -p $commit ]"
+    echo "-----------"
+    echo ""
+    git cat-file -p $commit
+    echo ""
+done
+echo ""
 
-# echo "==========="
-# echo "= Trees [ git cat-file --batch-check --batch-all-objects | grep tree"
-# echo "==========="
-# echo ""
-# for tree in $trees
-# do
-#     echo "-----------"
-#     echo "- $tree [ git cat-file -p $tree ]"
-#     echo "-----------"
-#     echo ""
-#     git cat-file -p $tree
-#     echo ""
-# done
-# echo ""
+echo "==========="
+echo "= Trees [ git cat-file --batch-check --batch-all-objects | grep tree"
+echo "==========="
+echo ""
+for tree in $trees
+do
+    echo "-----------"
+    echo "- $tree [ git cat-file -p $tree ]"
+    echo "-----------"
+    echo ""
+    git cat-file -p $tree
+    echo ""
+done
+echo ""
 
-# echo "==========="
-# echo "= Blobs [ git cat-file --batch-check --batch-all-objects | grep blob"
-# echo "==========="
-# echo ""
-# for blob in $blobs
-# do
-#     echo "-----------"
-#     echo "- $blob [ git cat-file -p $blob ]"
-#     echo "-----------"
-#     echo ""
-#     git cat-file -p $blob
-#     echo ""
-#     echo ""
-# done
+echo "==========="
+echo "= Blobs [ git cat-file --batch-check --batch-all-objects | grep blob"
+echo "==========="
+echo ""
+for blob in $blobs
+do
+    echo "-----------"
+    echo "- $blob [ git cat-file -p $blob ]"
+    echo "-----------"
+    echo ""
+    git cat-file -p $blob
+    echo ""
+    echo ""
+done
 
 ##########################################################################################################
 
