@@ -60,42 +60,107 @@ cat right.txt > left.txt && git alldetails > right.txt
   - First Commit (BlobA)
     - Show files
       - Focus on objects
+    - cat-file 
+      - Shows contents of the git database
+      - -batch-check --batch-all-objects
+      - -p
+      - Blob
+      - Tree
+      - Commit
   - Second commit
     - ObjectCreator (C#)
       - Show Blob
       - Explain Tree / Commit
-      - Export (BlobB)
+      - Export (Blob B)
     - Different trees / Same blobs
       - Blobs aren't files
       - Trees give context
       - Each commit has a tree
         - Each commit is complete
       - Differences aren't stored but calculated
+    - Notice commit pointing at parent
+      - This is the commit history
   - Third Commit
     - With subtree + new file (Blob C)
+      - The tree file is built up just like a blob but with specific content
+        - Same content = Same object
+        - Same goes for commit
+    - This means each unique file is immutable and has a different address
+      - Content-Addressable filesystem
+    - Commits point at parent
+      - Directed-Acyclic graph
 - Index
   - Notice staging before committing
   - What does this mean?
     - Alter the index file to store blobs
   - When you commit trees are made from index
-  - Alter bak/BlobA
-    - Modified
+  - Modified
+    - Alter bak/BlobA
       - Notice the new hash
     - Stage
       - Old out / New in
     - Unstage
-  - Add new
-    - Untracked
+  - Untracked
+    - Add new
       - Stage
       - Show blob
       - Unstage
       - Not removed
-  - Delete 
-    - Show Deleted
-    - Stage
-    - Commit
-    - Notice objects aren't removed
-      - Garbage collector
+  - Deleted
+    - Delete
+      - Stage 
+      - Commit
+      - Notice objects aren't removed
+        - Garbage collector
 - Refs
   - Objects live seperate lives
-  - 
+  - How is anything found 
+    - HEAD/heads
+    - HEAD = Where you are
+    - heads = Branches
+  - Create dev branch
+  - Diagram
+    - HEAD -> Ref -> Commit
+  - Don't do this for real but...
+    - Edit HEAD
+    - Edit Branch
+  - Tags
+    - tag name location
+    - Change to ref: HEAD
+  - Tag blob
+- Logs
+  - git reflog
+    - Show HEAD, master, dev
+  - You don't edit refs directly because of logs
+  - git update-ref *ref file* *ref* -m *message*
+- Merge
+  - Look here: 
+    - git merge --help
+  - Cause a conflict
+    - 1 = Base
+    - 2 = Ours (current branch)
+    - 3 = Theirs (other branch)
+  - Resolve it
+  - Reverse it
+    - git reset HEAD~
+      - soft: index/working area = untouched
+      - mixed: reset index
+      - hard: reset both
+    - git clean -xfd
+      - d: recurse
+      - x: un-indexed
+      - f: actually remove them
+  - Recover merge
+    - git reflog HEAD
+      - Delete logs
+    - git fsck --no-reflog
+      - Checks all objects can be found in the object heirarchy from a reference
+        - Reflog
+        - Reference
+          - heads
+          - tags
+    - git fsck --lost-found
+- Rebase
+  - Make history
+    - Rebase dev to master
+    - Undo it
