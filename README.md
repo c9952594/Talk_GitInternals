@@ -2,6 +2,8 @@
 
 You can find this repo here: https://github.com/c9952594/Talk_GitInternals
 
+If you have an afternoon go work through this https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain
+
 **VSCode**
 
 Going to use VSCode because it has:
@@ -34,7 +36,7 @@ There is nothing I'm doing in here that won't also work with your Command Line I
 
 ## Tooling
 
-I've written an extension to dump out git information.
+I've written an extension to dump out git information. This should also output the commands I used to get the information.
 
 ```
 git alldetails
