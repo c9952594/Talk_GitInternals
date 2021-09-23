@@ -1,0 +1,187 @@
+#!/bin/bash
+
+# Useful commands for the talk
+# $env:Path += ";$(Resolve-Path .)"
+# C:\Program Files\Git\bin\sh.exe
+# cat right.txt > left.txt && git alldetails > right.txt
+
+##########################################################################################################
+
+echo "==========="
+echo "= List Files in '.git' [ find .git/ -type f ]"
+echo "==========="
+echo ""
+find .git/ -type f
+echo ""
+
+##########################################################################################################
+
+# echo "==========="
+# echo "= All Objects [ git cat-file --batch-check --batch-all-objects ]"
+# echo "==========="
+# echo ""
+# git cat-file --batch-check --batch-all-objects
+# echo ""
+
+##########################################################################################################
+
+# commits=$(git cat-file --batch-check --batch-all-objects | grep commit | cut -d' ' -f 1)
+# trees=$(git cat-file --batch-check --batch-all-objects | grep tree | cut -d' ' -f 1)
+# blobs=$(git cat-file --batch-check --batch-all-objects | grep blob | cut -d' ' -f 1)
+
+# echo "==========="
+# echo "= Commits [ git cat-file --batch-check --batch-all-objects | grep commit ]"
+# echo "==========="
+# echo ""
+# for commit in $commits
+# do
+#     echo "-----------"
+#     echo "- $commit [ git cat-file -p $commit ]"
+#     echo "-----------"
+#     echo ""
+#     git cat-file -p $commit
+#     echo ""
+# done
+# echo ""
+
+# echo "==========="
+# echo "= Trees [ git cat-file --batch-check --batch-all-objects | grep tree"
+# echo "==========="
+# echo ""
+# for tree in $trees
+# do
+#     echo "-----------"
+#     echo "- $tree [ git cat-file -p $tree ]"
+#     echo "-----------"
+#     echo ""
+#     git cat-file -p $tree
+#     echo ""
+# done
+# echo ""
+
+# echo "==========="
+# echo "= Blobs [ git cat-file --batch-check --batch-all-objects | grep blob"
+# echo "==========="
+# echo ""
+# for blob in $blobs
+# do
+#     echo "-----------"
+#     echo "- $blob [ git cat-file -p $blob ]"
+#     echo "-----------"
+#     echo ""
+#     git cat-file -p $blob
+#     echo ""
+#     echo ""
+# done
+
+##########################################################################################################
+
+# echo "==========="
+# echo "= Log [ git --no-pager log --pretty=oneline --graph --all --decorate=full ]"
+# echo "==========="
+# echo ""
+# git --no-pager log --pretty=oneline --graph --all --decorate=full
+# echo ""
+
+##########################################################################################################
+
+# echo "==========="
+# echo "= Index"
+# echo "==========="
+# echo ""
+# echo "-----------"
+# echo "- Staged [ git ls-files -s ]"
+# echo "-----------"
+# echo ""
+# git ls-files -s
+# echo ""
+# echo "-----------"
+# echo "- Modified [ git ls-files -m ]"
+# echo "-----------"
+# echo ""
+# git ls-files -m
+# echo ""
+# echo "-----------"
+# echo "- Deleted [ git ls-files -d ]"
+# echo "-----------"
+# echo ""
+# git ls-files -d
+# echo ""
+# echo "-----------"
+# echo "- Unmerged [ git ls-files -u ]"
+# echo "-----------"
+# echo ""
+# git ls-files -u
+# echo ""
+# echo "-----------"
+# echo "- Others/Untracked [ git ls-files -o --exclude-standard ]"
+# echo "-----------"
+# echo ""
+# git ls-files -o --exclude-standard
+# echo ""
+
+##########################################################################################################
+
+# echo "==========="
+# echo "= References [ git show-ref --head ]"
+# echo "==========="
+# echo ""
+# git show-ref --head
+# echo ""
+
+# echo "==========="
+# echo "= Contents of reference files"
+# echo "==========="
+# echo ""
+
+# echo "-----------"
+# echo "- .git/HEAD [ cat .git/HEAD ]"
+# echo "-----------"
+# echo ""
+# cat .git/HEAD
+# echo ""
+
+# refpaths=$(find .git/refs/ -type f)
+# for refpath in $refpaths
+# do
+#     echo "-----------"
+#     echo "- $refpath"
+#     echo "-----------"
+#     echo ""
+#     cat $refpath
+#     echo ""
+# done
+
+##########################################################################################################
+
+# echo "==========="
+# echo "= Reflog (HEAD) [ git reflog ]"
+# echo "==========="
+# echo ""
+# git reflog
+# echo ""
+
+# echo "==========="
+# echo "= Contents of log files"
+# echo "==========="
+# echo ""
+
+# logpaths=$(find .git/logs/ -type f)
+# for logpath in $logpaths
+# do
+#     echo "-----------"
+#     echo "- $logpath"
+#     echo "-----------"
+#     echo ""
+#     cat $logpath
+#     echo ""
+# done
+
+##########################################################################################################
+
+# echo "==========="
+# echo "= Verify database [ git fsck  --unreachable --no-reflog ]"
+# echo "==========="
+# echo ""
+# git fsck --unreachable --no-reflog
+# echo ""
