@@ -123,6 +123,11 @@ cat right.txt > left.txt && git alldetails > right.txt
   - Create dev branch
   - Diagram
     - HEAD -> Ref -> Commit
+  - How/Why does HEAD change?
+    - Commit
+    - Create tree from index
+    - Create commit with parent as HEAD
+    - Move branch (HEAD moves automatically)
   - Don't do this for real but...
     - Edit HEAD
     - Edit Branch
