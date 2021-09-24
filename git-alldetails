@@ -30,19 +30,19 @@ trees=$(git cat-file --batch-check --batch-all-objects | grep tree | cut -d' ' -
 blobs=$(git cat-file --batch-check --batch-all-objects | grep blob | cut -d' ' -f 1)
 
 echo "==========="
-echo "= Commits [ git cat-file --batch-check --batch-all-objects | grep commit ]"
+echo "= Blobs [ git cat-file --batch-check --batch-all-objects | grep blob"
 echo "==========="
 echo ""
-for commit in $commits
+for blob in $blobs
 do
     echo "-----------"
-    echo "- $commit [ git cat-file -p $commit ]"
+    echo "- $blob [ git cat-file -p $blob ]"
     echo "-----------"
     echo ""
-    git cat-file -p $commit
+    git cat-file -p $blob
+    echo ""
     echo ""
 done
-echo ""
 
 echo "==========="
 echo "= Trees [ git cat-file --batch-check --batch-all-objects | grep tree"
@@ -60,19 +60,19 @@ done
 echo ""
 
 echo "==========="
-echo "= Blobs [ git cat-file --batch-check --batch-all-objects | grep blob"
+echo "= Commits [ git cat-file --batch-check --batch-all-objects | grep commit ]"
 echo "==========="
 echo ""
-for blob in $blobs
+for commit in $commits
 do
     echo "-----------"
-    echo "- $blob [ git cat-file -p $blob ]"
+    echo "- $commit [ git cat-file -p $commit ]"
     echo "-----------"
     echo ""
-    git cat-file -p $blob
-    echo ""
+    git cat-file -p $commit
     echo ""
 done
+echo ""
 
 ##########################################################################################################
 
